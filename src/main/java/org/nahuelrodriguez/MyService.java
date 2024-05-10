@@ -5,11 +5,14 @@ import jakarta.inject.Singleton;
 @Singleton
 public class MyService {
     private final BuggedRepository buggedRepository;
-    private final WorkingRepository workingRepository;
+    private final WorkingMicronautRepository workingMicronautRepository;
+    private final WorkingJakartaRepository workingJakartaRepository;
 
-    public MyService(final BuggedRepository buggedRepository, final WorkingRepository workingRepository) {
+    public MyService(final BuggedRepository buggedRepository, final WorkingMicronautRepository workingMicronautRepository,
+            final WorkingJakartaRepository workingJakartaRepository) {
         this.buggedRepository = buggedRepository;
-        this.workingRepository = workingRepository;
+        this.workingMicronautRepository = workingMicronautRepository;
+        this.workingJakartaRepository = workingJakartaRepository;
     }
 
     public void myBuggedMethodMicronaut() {
@@ -20,7 +23,11 @@ public class MyService {
         buggedRepository.buggedFetchJakarta();
     }
 
-    public void myWorkingMethod() {
-        workingRepository.workingFetch();
+    public void myWorkingMicronautMethod() {
+        workingMicronautRepository.workingFetch();
+    }
+
+    public void myWorkingJakartaMethod() {
+        workingJakartaRepository.workingFetch();
     }
 }

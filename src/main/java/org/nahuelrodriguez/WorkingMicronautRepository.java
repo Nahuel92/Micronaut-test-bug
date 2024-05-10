@@ -1,12 +1,11 @@
 package org.nahuelrodriguez;
 
 import io.micronaut.data.annotation.Repository;
-import io.micronaut.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional
-public abstract class WorkingRepository {
+@io.micronaut.transaction.annotation.Transactional
+public abstract class WorkingMicronautRepository {
     public List<Integer> workingFetch() {
         return List.of(5, 10, 15);
     }

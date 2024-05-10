@@ -12,8 +12,11 @@ class MyServiceTest {
     @MockBean(BuggedRepository.class)
     BuggedRepository buggedRepository = mock(BuggedRepository.class);
 
-    @MockBean(WorkingRepository.class)
-    WorkingRepository workingRepository = mock(WorkingRepository.class);
+    @MockBean(WorkingMicronautRepository.class)
+    WorkingMicronautRepository workingMicronautRepository = mock(WorkingMicronautRepository.class);
+
+    @MockBean(WorkingJakartaRepository.class)
+    WorkingJakartaRepository workingJakartaRepository = mock(WorkingJakartaRepository.class);
 
     @Inject
     private MyService subject;
@@ -37,11 +40,20 @@ class MyServiceTest {
     }
 
     @Test
-    void successWhenRepositoryClassIsAnnotatedAsTransactional() {
+    void successWhenRepositoryIsClassAnnotatedAsMicronautTransactional() {
         // when
-        subject.myWorkingMethod();
+        subject.myWorkingMicronautMethod();
 
         // then
-        verify(workingRepository).workingFetch();
+        verify(workingMicronautRepository).workingFetch();
+    }
+
+    @Test
+    void successWhenRepositoryIsClassAnnotatedAsJakartaTransactional() {
+        // when
+        subject.myWorkingJakartaMethod();
+
+        // then
+        verify(workingJakartaRepository).workingFetch();
     }
 }
