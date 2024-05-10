@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>org.nahuelrodriguez</groupId>
+    <artifactId>bug-demo</artifactId>
     <version>0.1</version>
     <packaging>${packaging}</packaging>
 
@@ -19,8 +19,8 @@
         <micronaut.version>4.4.2</micronaut.version>
         <micronaut.runtime>netty</micronaut.runtime>
         <micronaut.aot.enabled>false</micronaut.aot.enabled>
-        <micronaut.aot.packageName>com.example.aot.generated</micronaut.aot.packageName>
-        <exec.mainClass>com.example.Application</exec.mainClass>
+        <micronaut.aot.packageName>org.nahuelrodriguez.aot.generated</micronaut.aot.packageName>
+        <exec.mainClass>org.nahuelrodriguez.Application</exec.mainClass>
     </properties>
 
     <repositories>
@@ -135,6 +135,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -212,7 +213,7 @@
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <arg>-Amicronaut.processing.group=org.nahuelrodriguez</arg>
-                        <arg>-Amicronaut.processing.module=demo</arg>
+                        <arg>-Amicronaut.processing.module=bug-demo</arg>
                     </compilerArgs>
                 </configuration>
             </plugin>
