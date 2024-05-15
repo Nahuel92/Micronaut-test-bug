@@ -3,6 +3,7 @@ package org.nahuelrodriguez;
 import io.micronaut.data.annotation.Repository;
 import java.util.List;
 
+// Works at runtime (production mode, that is not when running tests)
 @Repository
 public abstract class BuggedRepository {
     @io.micronaut.transaction.annotation.Transactional
