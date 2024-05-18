@@ -8,9 +8,10 @@ import jakarta.inject.Singleton;
 
 /**
  * Please:
- * - Start the Docker-compose stack.
  * - Export MICRONAUT_ENVIRONMENTS=prod
- * Before running the app
+ * Before running the app, as I had to split DB config for production mode and tests.
+ * This is needed because `@Transactional` behavior is broken depending on how it is used
+ * and this misbehavior can't be caught in tests (which makes this extremely unwanted).
  */
 
 @Singleton
