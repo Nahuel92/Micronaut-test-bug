@@ -3,12 +3,13 @@ package org.nahuelrodriguez;
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.jdbc.runtime.JdbcOperations;
+
 import java.util.List;
 
 @Repository
-@io.micronaut.transaction.annotation.Transactional  // Works during testing time but not when running in Production mode
+//@io.micronaut.transaction.annotation.Transactional  // Works during testing time but not when running in Production mode
 public abstract class WorkingMicronautRepository {
-    private JdbcOperations jdbcOperations;
+    private final JdbcOperations jdbcOperations;
 
     public WorkingMicronautRepository(final JdbcOperations jdbcOperations) {
         this.jdbcOperations = jdbcOperations;
@@ -18,6 +19,7 @@ public abstract class WorkingMicronautRepository {
         return List.of(5, 10, 15);
     }
 
+    @io.micronaut.transaction.annotation.Transactional
     public List<MyEntity> buggedMethod() {
         return jdbcOperations.prepareStatement(
                 "SELECT id, name FROM mytable",
