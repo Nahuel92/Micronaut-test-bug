@@ -110,6 +110,8 @@ class BuggedRepository$Intercepted extends BuggedRepository implements Introduce
 }
 ```
 
+We can see how the constructor calls the resolveAroundInterceptors method.
+
 ## Third bug test case
 
 As it is a combination of previous 2 test cases, I haven't looked into it (I suspect it will be fixed once previous ones
